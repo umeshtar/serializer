@@ -1,7 +1,7 @@
 import pytz
 
 
-class TechnoSerializer:
+class DjangoSerializer:
     """
     Convert Django Instance and QuerySet into Python-Json Readable Format
     Parameters:
@@ -182,7 +182,10 @@ class EncryptData:
 
     @staticmethod
     def decrypt(enc_data):
-        return enc_data.split('@encrypted')[0]
+        if enc_data and isinstance(enc_data, str) and enc_data.endswith('@encrypted'):
+            return enc_data.split('@encrypted')[0]
+        else:
+            return enc_data
 
 
 def get_user_timezone(request):
