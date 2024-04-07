@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('serialize', include('App_Serializer.urls')),
+    path('serialize/', include('App_Serializer.urls')),
 ]
